@@ -1,0 +1,23 @@
+image: java:8-jdk
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - ./gradlew build
+  tags:
+    - docker
+
+test:
+  stage: test
+  script:
+    - ./gradlew test
+
+deploy:
+  stage: deploy
+  script:
+    - ./deploy

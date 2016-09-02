@@ -1,0 +1,13 @@
+group 'com.yaba.demo'
+
+apply plugin: 'war'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    providedCompile 'javax:javaee-api:7.0'
+}
