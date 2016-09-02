@@ -11,3 +11,5 @@ repositories {
 dependencies {
     deploy project(path: ':authorization-svcs', configuration: 'archives')
 }
+
+task stage(dependsOn: ['clean', 'build'])
