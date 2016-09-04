@@ -1,0 +1,4 @@
+rootProject.name = 'authorization-svcsEAR'
+include 'authorization-svcs'
+rootProject.name = 'authorization-svcsEAR'
+
