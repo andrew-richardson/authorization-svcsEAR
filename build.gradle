@@ -1,8 +1,10 @@
 group 'com.yaba.demo'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 apply plugin: 'ear'
 apply plugin: 'idea'
+
+evaluationDependsOn(':authorization-svcs')
 
 repositories {
     mavenCentral()
@@ -11,5 +13,3 @@ repositories {
 dependencies {
     deploy project(path: ':authorization-svcs', configuration: 'archives')
 }
-
-task stage(dependsOn: ['clean', 'build'])

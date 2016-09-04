@@ -1,14 +1,17 @@
 image: java:8-jdk
+image: docker:latest
 
 stages:
-  - build
+  - assemble
   - test
-  - deploy
+  - build
 
-build:
-  stage: build
+assemble:
+  stage: assemble
   script:
     - ./gradlew build
+    - docker login registry.gitlab.com
+    - docker build -t registry.gitlab.com/arichardson2189/authorization-svcsear .
   tags:
     - docker
 
@@ -17,7 +20,7 @@ test:
   script:
     - ./gradlew test
 
-deploy:
-  stage: deploy
+build:
+  stage: build
   script:
-    - ./deploy
+    - docker push  registry.gitlab.com/arichardson2189/authorization-svcsear
