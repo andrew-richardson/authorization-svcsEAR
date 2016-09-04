@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - docker build -t arichardson2189/wildfly-authentication-svcs .
+
+after_success:
+  - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+  - docker push
